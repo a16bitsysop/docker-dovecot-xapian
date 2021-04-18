@@ -28,12 +28,19 @@ then
         REDIS="127.0.0.1"
 fi
 
-if [ -n "$REDIS" ]
-then
-  REDISIP=$(ping -c1 "$REDIS" | head -n1 | cut -f2 -d'(' | cut -f1 -d')')
-  echo "uri = redis:host=$REDISIP" > dict.uri
+echo "Waiting for redis to load database"
+_ready=""
+while [ -z "$_ready" ]
+do
+  sleep 5s
+  _reply=$(echo "PING" | nc "$REDIS" 6379)
+  echo "$_reply"
+  echo "$_reply" | grep "PONG" && _ready="1"
+done
+
+REDISIP=$(ping -c1 "$REDIS" | head -n1 | cut -f2 -d'(' | cut -f1 -d')')
+echo "uri = redis:host=$REDISIP" > dict.uri
 #  echo -e "plugin {\n  quota_clone_dict = redis:host=$REDISIP:port=6379\n}" > conf.d/quota.uri
-fi
 
 echo "#10-auto.conf from environment variables" > conf.d/10-auto.conf
 HOSTNAME="$HOSTNAME"
