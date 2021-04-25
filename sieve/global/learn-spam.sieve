@@ -1,2 +1,3 @@
 require ["vnd.dovecot.pipe", "copy", "imapsieve"];
-pipe :copy "rspamc" [ "-h", "localhost", "learn_spam" ];
+pipe :copy "curl" ["--data-binary", "@-", "http://localhost:11334/learnspam" ];
+

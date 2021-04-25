@@ -8,4 +8,4 @@ if string "${mailbox}" "Trash" {
   stop;
 }
 
-pipe :copy "rspamc" [ "-h", "localhost", "learn_ham" ];
+pipe :copy "curl" ["--data-binary", "@-", "http://localhost:11334/learnham" ];
