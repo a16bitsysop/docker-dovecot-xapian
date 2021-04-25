@@ -48,7 +48,7 @@ fi
 # to a temp file
 path=$(mktemp -p /tmp decode.XXXXXX)
 opath=$(mktemp -p /tmp decode.XXXXXX)
-trap "rm -rf /tmp/decode.*" EXIT
+trap "rm -rf /tmp/decode.*" 0 1 2 3 14 15
 tee "$path" >/dev/null
 
 xmlunzip() {
@@ -64,7 +64,7 @@ xmlunzip() {
 LANG=en_US.UTF-8
 export LANG
 if [ "$fmt" = "pdf" ]; then
-  /usr/bin/mutool convert -F text -o "$opath" "$path"
+  /usr/bin/mutool convert -F text -o "$opath" "$path" 2>/dev/null
   cat "$opath"
 elif [ "$fmt" = "odt" ] || [ "$fmt" = "ods" ] || [ "$fmt" = "odp" ]; then
   xmlunzip "content.xml"
