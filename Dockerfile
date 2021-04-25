@@ -21,9 +21,6 @@ RUN apk add -u --no-cache dovecot-lmtpd dovecot-pop3d dovecot-pigeonhole-plugin 
 WORKDIR /usr/libexec/dovecot
 COPY decode2text.sh ./
 
-WORKDIR /usr/bin
-COPY pdftotext ./
-
 WORKDIR /etc/dovecot
 COPY conf ./
 

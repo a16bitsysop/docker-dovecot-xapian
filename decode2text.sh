@@ -47,8 +47,9 @@ fi
 # most decoders can't handle stdin directly, so write the attachment
 # to a temp file
 path=$(mktemp -p /tmp decode.XXXXXX)
+opath=$(mktemp -p /tmp decode.XXXXXX)
 trap "rm -rf /tmp/decode.*" EXIT
-tee "$path"
+tee "$path" >/dev/null
 
 xmlunzip() {
   name="$1"
@@ -63,7 +64,8 @@ xmlunzip() {
 LANG=en_US.UTF-8
 export LANG
 if [ "$fmt" = "pdf" ]; then
-  /usr/bin/pdftotext "$path"
+  /usr/bin/mutool convert -F text -o "$opath" "$path"
+  cat "$opath"
 elif [ "$fmt" = "odt" ] || [ "$fmt" = "ods" ] || [ "$fmt" = "odp" ]; then
   xmlunzip "content.xml"
 elif [ "$fmt" = "docx" ]; then

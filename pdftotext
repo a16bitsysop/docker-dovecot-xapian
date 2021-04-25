@@ -1,8 +1,0 @@
-#!/bin/sh
-
-path=$(mktemp)
-
-mutool convert -F text -o "$path" "$1"
-
-cat "$path"
-rm "$path"
