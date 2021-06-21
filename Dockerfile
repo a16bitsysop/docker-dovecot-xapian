@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.14
 LABEL maintainer="Duncan Bellamy <dunk@denkimushi.com>"
 
 RUN mkdir /var/vmail && addgroup -S -g 5000 vmail \

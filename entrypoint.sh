@@ -43,7 +43,7 @@ echo "uri = redis:host=$REDISIP" > dict.uri
 #  echo -e "plugin {\n  quota_clone_dict = redis:host=$REDISIP:port=6379\n}" > conf.d/quota.uri
 
 echo "#10-auto.conf from environment variables" > conf.d/10-auto.conf
-HOSTNAME="$HOSTNAME"
+
 if [ -n "$HOSTNAME" ]
 then
   echo "hostname = $HOSTNAME" >> conf.d/10-auto.conf

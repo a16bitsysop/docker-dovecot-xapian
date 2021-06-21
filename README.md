@@ -1,10 +1,10 @@
 # docker-dovecot-xapian
 Dockerfile to run [dovecot](https://www.dovecot.org) as a docker container, redis is used for userdb/passdb lookups to reduce footprint.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dovecot-xapian.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dovecot-xapian/)
-[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dovecot-xapian.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/dovecot-xapian/)
-[![Version](https://images.microbadger.com/badges/version/a16bitsysop/docevot-xapian.svg)](https://microbadger.com/images/a16bitsysop/dovecot-xapian "Get your own version badge on microbadger.com")
-[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/dovecot-xapian.svg)](https://microbadger.com/images/a16bitsysop/dovecot-xapian "Get your own commit badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/dovecot-xapian.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/dovecot-xapian/)
+[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/dovecot-xapian.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/dovecot-xapian/)
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/a16bitsysop/dovecot-xapian/latest?style=plastic)](https://hub.docker.com/r/a16bitsysop/dovecot-xapian/)
+[![Github SHA](https://img.shields.io/badge/dynamic/json?style=plastic&color=orange&label=Github%20SHA&query=object.sha&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fa16bitsysop%2Fdocker-dovecot-xapian%2Fgit%2Frefs%2Fheads%2Fmain)](https://github.com/a16bitsysop/docker-dovecot-xapian)
 [![GitHub Super-Linter](https://github.com/a16bitsysop/docker-dovecot-xapian/workflows/Super-Linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 It uses inet lmtp with ssl and auth, instead of sockets as running inside docker network so less dependencies.  For postfix to use lmtp with ssl it needs ```lmtp_use_tls = yes``` set in main.cf
