@@ -1,3 +1,0 @@
-[submodule "travis-helpers"]
-	path = travis-helpers
-	url = https://github.com/a16bitsysop/travis-helpers.git
