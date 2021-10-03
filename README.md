@@ -1,2 +1,2 @@
 This project has moved to gitlab:
-https://gitlab.com/a16bitsysop/docker-dovecot-xapian
+https://gitlab.com/container-email/dovecot-xapian
